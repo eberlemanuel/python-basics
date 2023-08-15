@@ -1,9 +1,10 @@
-from openpyxl import Workbook
+import xlsxwriter #pip install xlsxwriter
 
-workbook = Workbook()
-sheet = workbook.active
-
-sheet["A1"] = "hello"
-sheet["B1"] = "world!"
-
-workbook.save(filename="test.xlsx")
+# Neues Workbook anlegen
+workbook = xlsxwriter.Workbook('tutorial.xlsx')
+# Neues Datenblatt hinzufügen
+worksheet = workbook.add_worksheet('Beispiel')
+# Schreiben
+worksheet.write(0, 0, 'TEST')
+# Schließen der Datei
+workbook.close()
